@@ -11,7 +11,10 @@ export class SearchComponent implements OnInit {
 
   constructor(private fb: FormBuilder) {
     this.searchForm = this.fb.group({
-      keyword: ['', [Validators.pattern('.{3}'), Validators.pattern('[a-zA-Z0-9]+')]],
+      keyword: [
+        '',
+        [Validators.minLength(3), Validators.pattern('[a-zA-Z0-9]+')],
+      ],
     });
   }
 
@@ -19,10 +22,10 @@ export class SearchComponent implements OnInit {
 
   public submitSearchForm(): void {
     console.log(
-      this.searchForm.value,
-      this.searchForm.valid,
+      'value:',
       this.searchForm.controls['keyword'].value,
-      this.searchForm.controls['keyword'].errors)
+      'Errors:',
+      this.searchForm.controls['keyword'].errors
+    );
   }
-
 }
