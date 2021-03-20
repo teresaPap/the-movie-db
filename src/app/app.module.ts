@@ -9,6 +9,7 @@ import { MatButtonModule } from '@angular/material/button';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { SearchComponent } from './search/search.component';
+import { HttpClientModule } from '@angular/common/http';
 
 
 @NgModule({
@@ -19,6 +20,7 @@ import { SearchComponent } from './search/search.component';
   imports: [
     BrowserModule,
     AppRoutingModule,
+    HttpClientModule,
     NoopAnimationsModule,
     ReactiveFormsModule,
     MatInputModule,

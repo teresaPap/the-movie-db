@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+import { DataService } from '../services/data.service';
 
 @Component({
   selector: 'tmdb-search',
@@ -9,7 +10,7 @@ import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 export class SearchComponent implements OnInit {
   public searchForm: FormGroup;
 
-  constructor(private fb: FormBuilder) {
+  constructor(private fb: FormBuilder, private db: DataService) {
     this.searchForm = this.fb.group({
       keyword: [
         '',
@@ -20,14 +21,14 @@ export class SearchComponent implements OnInit {
 
   ngOnInit(): void {}
 
-  public submitSearchForm(): boolean {
-    console.log(
-      'valid form:', this.searchForm.valid,
-      'value:',
-      this.searchForm.controls['keyword'].value,
-      'Errors:',
-      this.searchForm.controls['keyword'].errors
-    );
-    return this.searchForm.valid
+  public submitSearchForm(): any {
+    if (!this.searchForm.controls['keyword'].value) {
+      return;
+    }
+    return this.db
+      .searchMovie(this.searchForm.controls['keyword'].value)
+      .subscribe((res) => {
+        console.log(res);
+      });
   }
 }
