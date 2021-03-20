@@ -1,4 +1,4 @@
-import { IMovie } from './IMovie';
+import { IMovie, IMovieDisplayData } from './IMovie';
 import { ISearchResults } from './ISearchResults';
 
-export { ISearchResults, IMovie };
+export { ISearchResults, IMovie, IMovieDisplayData };

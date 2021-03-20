@@ -1,5 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+import { Subscription } from 'rxjs';
+import { IMovieDisplayData } from '../interfaces';
 import { DataService } from '../services/data.service';
 
 @Component({
@@ -7,8 +9,12 @@ import { DataService } from '../services/data.service';
   templateUrl: './search.component.html',
   styleUrls: ['./search.component.scss'],
 })
-export class SearchComponent implements OnInit {
+export class SearchComponent {
   public searchForm: FormGroup;
+  public movies: IMovieDisplayData[] = [];
+
+  public defaultElevation = 0;
+  public raisedElevation = 2;
 
   constructor(private fb: FormBuilder, private db: DataService) {
     this.searchForm = this.fb.group({
@@ -19,9 +25,7 @@ export class SearchComponent implements OnInit {
     });
   }
 
-  ngOnInit(): void {}
-
-  public submitSearchForm(): any {
+  public submitSearchForm(): Subscription | void {
     if (!this.searchForm.controls['keyword'].value) {
       return;
     }
@@ -29,6 +33,7 @@ export class SearchComponent implements OnInit {
       .searchMovie(this.searchForm.controls['keyword'].value)
       .subscribe((res) => {
         console.log(res);
+        this.movies = res
       });
   }
 }
