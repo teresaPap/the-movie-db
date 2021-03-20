@@ -1,0 +1,11 @@
+<p>search works!</p>
+
+<form [formGroup]="searchForm" (ngSubmit)="submitSearchForm()">
+  <mat-form-field appearance="outline">
+    <mat-label>Search Movies</mat-label>
+    <input matInput type="matInput" formControlName="keyword" />
+    <mat-hint>Enter a movie or a keyword</mat-hint>
+    <mat-error *ngIf="searchForm.invalid">TODO: display custom validator errors</mat-error>
+  </mat-form-field>
+  <button mat-button color="primary" type="submit" [disabled]="searchForm.invalid">Search</button>
+</form>
