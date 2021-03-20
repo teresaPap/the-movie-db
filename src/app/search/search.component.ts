@@ -20,12 +20,14 @@ export class SearchComponent implements OnInit {
 
   ngOnInit(): void {}
 
-  public submitSearchForm(): void {
+  public submitSearchForm(): boolean {
     console.log(
+      'valid form:', this.searchForm.valid,
       'value:',
       this.searchForm.controls['keyword'].value,
       'Errors:',
       this.searchForm.controls['keyword'].errors
     );
+    return this.searchForm.valid
   }
 }
