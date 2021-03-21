@@ -1,0 +1,17 @@
+.container {
+    display: flex;
+    justify-content: space-evenly;
+    flex-flow: row wrap;
+    align-content: flex-start;
+  }
+  
+  .movie-card {
+    width: 8rem;
+    display: inline-block;
+    margin-bottom: 1rem;
+    &:hover {
+      transition: all 0.2s ease;
+      transform: scale(1.01);
+    }
+  }
+  
