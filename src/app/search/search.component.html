@@ -1,4 +1,7 @@
-<form [formGroup]="searchForm" (ngSubmit)="submitSearchForm()">
+<form
+	[formGroup]="searchForm"
+	(ngSubmit)="searchForMovies(searchForm.controls['keyword'].value)"
+>
 	<mat-form-field appearance="outline">
 		<mat-label>Search Movies</mat-label>
 		<input matInput type="matInput" formControlName="keyword" />
@@ -18,12 +21,12 @@
 	>
 		Search
 	</button>
-  <button
+	<button
 		mat-button
 		color="secondary"
 		type="button"
 		*ngIf="searchForm.controls['keyword'].value"
-    (click)="searchForm.reset()"
+		(click)="searchForm.reset()"
 	>
 		Clear
 	</button>
@@ -33,6 +36,6 @@
 	<tmdb-search-results
 		[movies]="movies"
 		[paginatorLength]="totalMovies"
-		(pageChangedEvent)="submitSearchForm(activePage+$event)"
+		(pageChangedEvent)="searchForMovies(activeKeyword, activePage + $event)"
 	></tmdb-search-results>
 </ng-container>

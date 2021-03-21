@@ -26,12 +26,13 @@ export class SearchComponent {
 		});
 	}
 
-	public submitSearchForm(page?: number): Subscription | void {
-		if (!this.searchForm.controls['keyword'].value) {
+	public searchForMovies(keyword: string, page?: number): Subscription | void {
+		if (!keyword) {
 			this.activePage = 0;
+			this.activeKeyword = '';
 			return;
 		}
-		this.activeKeyword = this.searchForm.controls['keyword'].value;
+		this.activeKeyword = keyword;
 		return this.db
 			.searchMovie(this.activeKeyword, page)
 			.subscribe((res: ISearchResults) => {
