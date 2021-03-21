@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { ActivatedRoute } from '@angular/router';
 
 @Component({
   selector: 'tmdb-movie-detail',
@@ -7,7 +8,11 @@ import { Component, OnInit } from '@angular/core';
 })
 export class MovieDetailComponent implements OnInit {
 
-  constructor() { }
+  public movie: any;
+
+	constructor(private route: ActivatedRoute) {
+		this.movie = this.route.snapshot.data['resolvedData']
+	}
 
   ngOnInit(): void {
   }

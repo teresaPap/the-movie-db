@@ -1,6 +1,7 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 import { ModalComponent } from './modal/modal.component';
+import { MovieResolver } from './movie-detail/movie.resolver';
 import { SearchComponent } from './search/search.component';
 
 const routes: Routes = [
@@ -10,14 +11,15 @@ const routes: Routes = [
 		component: ModalComponent,
 		children: [
 			{
-				path: '',
+				path: ':id',
 				loadChildren: () =>
 					import('./movie-detail/movie-detail.module').then(
 						(m) => m.MovieDetailModule
 					),
+				resolve: { resolvedData: MovieResolver },
 			},
 		],
-		outlet: 'modal'
+		outlet: 'modal',
 	},
 ];
 

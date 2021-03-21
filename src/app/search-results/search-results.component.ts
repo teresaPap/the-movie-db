@@ -31,8 +31,6 @@ export class SearchResultsComponent implements OnInit {
       event.previousPageIndex > event.pageIndex
         ? -1
         : 1;
-
-      console.log('onPageChange called:', event);
       this.pageChangedEvent.emit(step)
   }
 }

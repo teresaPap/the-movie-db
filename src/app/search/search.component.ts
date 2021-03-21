@@ -39,6 +39,7 @@ export class SearchComponent {
 				this.activePage = res.page;
 				this.movies = res.results;
 				this.totalMovies = res.total_results;
+				console.log(this.movies)
 			});
 	}
 }
