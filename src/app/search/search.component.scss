@@ -1,0 +1,19 @@
+.hero {
+    display: flex;
+    flex-flow: column nowrap;
+    align-items: center;
+    background: linear-gradient(to right, #c0fecf 0%, #1ed5a9 100%);
+}
+
+.search-form {
+    padding: 1rem;
+    display: flex;
+    justify-content: center;
+    mat-form-field {
+        width: 100vh;
+    }
+}
+
+.search-results {
+    padding: 0 3rem;
+}

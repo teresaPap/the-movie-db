@@ -10,15 +10,20 @@ import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { SearchComponent } from './search/search.component';
 import { HttpClientModule } from '@angular/common/http';
-import { SearchResultsModule } from './search-results/search-results.module';
 import { MatDialogModule } from '@angular/material/dialog';
 import { ModalComponent } from './modal/modal.component';
+import { MaterialElevationDirective } from './directives/material-elevation.directive';
+import { SearchResultsComponent } from './search-results/search-results.component';
+import { MatPaginatorModule } from '@angular/material/paginator';
+import { MatCardModule } from '@angular/material/card';
+import { CommonModule } from '@angular/common';
 
 @NgModule({
-	declarations: [AppComponent, SearchComponent, ModalComponent],
+	declarations: [AppComponent, SearchComponent, ModalComponent, SearchResultsComponent, MaterialElevationDirective],
 	imports: [
 		BrowserModule,
 		AppRoutingModule,
+		CommonModule,
 		HttpClientModule,
 		NoopAnimationsModule,
 		ReactiveFormsModule,
@@ -26,8 +31,9 @@ import { ModalComponent } from './modal/modal.component';
 		MatFormFieldModule,
 		MatIconModule,
 		MatButtonModule,
-		SearchResultsModule,
 		MatDialogModule,
+		MatCardModule, 
+		MatPaginatorModule,
 	],
 	providers: [],
 	bootstrap: [AppComponent],
