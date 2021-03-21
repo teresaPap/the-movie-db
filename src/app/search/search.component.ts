@@ -1,8 +1,7 @@
 import { Component } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
-import { PageEvent } from '@angular/material/paginator';
 import { Subscription } from 'rxjs';
-import { IMovieDisplayData } from '../interfaces';
+import { IMovieDisplayData, ISearchResults } from '../interfaces';
 import { DataService } from '../services/data.service';
 
 @Component({
@@ -16,6 +15,7 @@ export class SearchComponent {
 
 	public activePage: number = 0;
 	public activeKeyword: string = '';
+	public totalMovies: number = 0;
 
 	constructor(private fb: FormBuilder, private db: DataService) {
 		this.searchForm = this.fb.group({
@@ -26,14 +26,18 @@ export class SearchComponent {
 		});
 	}
 
-	public submitSearchForm(): Subscription | void {
+	public submitSearchForm(page?: number): Subscription | void {
 		if (!this.searchForm.controls['keyword'].value) {
+			this.activePage = 0;
 			return;
 		}
 		this.activeKeyword = this.searchForm.controls['keyword'].value;
-		return this.db.searchMovie(this.activeKeyword).subscribe((res) => {
-			this.activePage = res.page;
-			this.movies = res.results;
-		});
+		return this.db
+			.searchMovie(this.activeKeyword, page)
+			.subscribe((res: ISearchResults) => {
+				this.activePage = res.page;
+				this.movies = res.results;
+				this.totalMovies = res.total_results;
+			});
 	}
 }

@@ -1,27 +1,38 @@
 <form [formGroup]="searchForm" (ngSubmit)="submitSearchForm()">
-  <mat-form-field appearance="outline">
-    <mat-label>Search Movies</mat-label>
-    <input matInput type="matInput" formControlName="keyword" />
-    <mat-hint>Enter one (1) keyword</mat-hint>
-    <mat-error *ngIf="searchForm.controls['keyword'].errors?.minlength">
-      Please type at least three (3) characters.
-    </mat-error>
-    <mat-error *ngIf="searchForm.controls['keyword'].errors?.pattern">
-      Please use only letters and numbers.
-    </mat-error>
-  </mat-form-field>
+	<mat-form-field appearance="outline">
+		<mat-label>Search Movies</mat-label>
+		<input matInput type="matInput" formControlName="keyword" />
+		<mat-hint>Enter one (1) keyword</mat-hint>
+		<mat-error *ngIf="searchForm.controls['keyword'].errors?.minlength">
+			Please type at least three (3) characters.
+		</mat-error>
+		<mat-error *ngIf="searchForm.controls['keyword'].errors?.pattern">
+			Please use only letters and numbers.
+		</mat-error>
+	</mat-form-field>
+	<button
+		mat-button
+		color="primary"
+		type="submit"
+		[disabled]="searchForm.invalid"
+	>
+		Search
+	</button>
   <button
-    mat-button
-    color="primary"
-    type="submit"
-    [disabled]="searchForm.invalid"
-  >
-    Search
-  </button>
+		mat-button
+		color="secondary"
+		type="button"
+		*ngIf="searchForm.controls['keyword'].value"
+    (click)="searchForm.reset()"
+	>
+		Clear
+	</button>
 </form>
 
-<hr>
-
-<ng-container *ngIf="movies.length">
-  <tmdb-search-results [movies]="movies"></tmdb-search-results>
+<ng-container *ngIf="activePage">
+	<tmdb-search-results
+		[movies]="movies"
+		[paginatorLength]="totalMovies"
+		(pageChangedEvent)="submitSearchForm(activePage+$event)"
+	></tmdb-search-results>
 </ng-container>

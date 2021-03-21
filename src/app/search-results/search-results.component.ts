@@ -1,4 +1,4 @@
-import { Component, Input, OnInit, Output } from '@angular/core';
+import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
 import { PageEvent } from '@angular/material/paginator';
 import { Subscription } from 'rxjs';
 import { IMovieDisplayData } from '../interfaces';
@@ -10,6 +10,8 @@ import { IMovieDisplayData } from '../interfaces';
 })
 export class SearchResultsComponent implements OnInit {
   @Input() movies: IMovieDisplayData[] = [];
+  @Input() paginatorLength: number = 0;
+  @Output() pageChangedEvent = new EventEmitter<1|-1>();
   
   // Movie Card Elevation
   public defaultElevation = 0;
@@ -31,12 +33,6 @@ export class SearchResultsComponent implements OnInit {
         : 1;
 
       console.log('onPageChange called:', event);
-
-    // return this.db
-    //   .searchMovie(this.activeKeyword, step + this.activePage)
-    //   .subscribe((res) => {
-    //     this.movies = res.results;
-    //     this.activePage = res.page;
-    //   });
+      this.pageChangedEvent.emit(step)
   }
 }
