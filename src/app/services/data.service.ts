@@ -17,7 +17,8 @@ export class DataService {
 
   constructor(private http: HttpClient) {}
 
-  public searchMovie(query: string, page?: number): Observable<any> {
+
+  public searchMovies(query: string, page?: number): Observable<any> {
     return this.http
       .get(
         `${this.API_ENDPOINT}/${this.GET_SEARCH_MOVIE}?api_key=${this.API_KEY}&query=${query}&page=${page}`
@@ -30,7 +31,7 @@ export class DataService {
             results: res.results.map(({ id, poster_path, title, vote_average }) => {
               return {
                 id,
-                poster_path: `${this.IMG_BASE_URL}/${poster_path}`,
+                poster_path: poster_path ? `${this.IMG_BASE_URL}/${poster_path}` : null,
                 title,
                 vote_average,
               };

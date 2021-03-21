@@ -34,7 +34,7 @@ export class SearchComponent {
 		}
 		this.activeKeyword = keyword;
 		return this.db
-			.searchMovie(this.activeKeyword, page)
+			.searchMovies(this.activeKeyword, page)
 			.subscribe((res: ISearchResults) => {
 				this.activePage = res.page;
 				this.movies = res.results;
