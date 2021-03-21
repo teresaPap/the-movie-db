@@ -1,10 +1,21 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
+import { SearchComponent } from './search/search.component';
 
-const routes: Routes = [];
+const routes: Routes = [
+	{ path: '', component: SearchComponent },
+	{
+		path: 'movie',
+		loadChildren: () =>
+			import('./movie-detail/movie-detail.module').then(
+				(m) => m.MovieDetailModule
+			),
+		outlet: 'modal',
+	},
+];
 
 @NgModule({
-  imports: [RouterModule.forRoot(routes)],
-  exports: [RouterModule]
+	imports: [RouterModule.forRoot(routes)],
+	exports: [RouterModule],
 })
-export class AppRoutingModule { }
+export class AppRoutingModule {}

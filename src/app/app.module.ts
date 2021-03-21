@@ -13,7 +13,7 @@ import { HttpClientModule } from '@angular/common/http';
 import { SearchResultsModule } from './search-results/search-results.module';
 
 @NgModule({
-  declarations: [AppComponent, SearchComponent, ],
+  declarations: [AppComponent, SearchComponent ],
   imports: [
     BrowserModule,
     AppRoutingModule,
