@@ -1,16 +1,23 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
+import { ModalComponent } from './modal/modal.component';
 import { SearchComponent } from './search/search.component';
 
 const routes: Routes = [
 	{ path: '', component: SearchComponent },
 	{
 		path: 'movie',
-		loadChildren: () =>
-			import('./movie-detail/movie-detail.module').then(
-				(m) => m.MovieDetailModule
-			),
-		outlet: 'modal',
+		component: ModalComponent,
+		children: [
+			{
+				path: '',
+				loadChildren: () =>
+					import('./movie-detail/movie-detail.module').then(
+						(m) => m.MovieDetailModule
+					),
+			},
+		],
+		outlet: 'modal'
 	},
 ];
 

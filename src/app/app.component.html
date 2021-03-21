@@ -1,4 +1,10 @@
-<a [routerLink]="[{outlets: { modal: ['movie' ] } }]">Movie</a>
+<button
+	mat-button
+	type="button"
+	[routerLink]="[{ outlets: { modal: ['movie'] } }]"
+>
+	Open modal
+</button>
 
 <router-outlet></router-outlet>
 
