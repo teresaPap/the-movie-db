@@ -20,12 +20,25 @@
   </button>
 </form>
 
-<div>total results of the page: {{ movies.length }}</div>
+<hr>
 
 <ng-container *ngIf="movies.length">
-  <h2>Search results</h2>
+  <div>
+    <h2>Search results</h2>
+    <p>total results of the page: {{ movies.length }}</p>
+    <mat-paginator
+      [length]="length"
+      [pageSize]="pageSize"
+      (page)="onPageChange($event)"
+    >
+    </mat-paginator>
+  </div>
   <div *ngIf="movies.length" class="container">
-    <mat-card *ngFor="let movie of movies" class="movie-card" appMaterialElevation>
+    <mat-card
+      *ngFor="let movie of movies"
+      class="movie-card"
+      appMaterialElevation
+    >
       <img mat-card-image [src]="movie.poster_path" [alt]="movie.title" />
       <mat-card-content>
         <mat-card-title>{{ movie.title }}</mat-card-title>

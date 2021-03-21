@@ -3,7 +3,6 @@ export interface IMovie extends IMovieDisplayData {
   overview: string;
   release_date: string;
   genre_ids: number[];
-  id: number;
   original_title: string;
   original_language: string;
   backdrop_path: string | null;
@@ -13,6 +12,7 @@ export interface IMovie extends IMovieDisplayData {
 }
 
 export interface IMovieDisplayData {
+  id: number;
   poster_path: string | null;
   title: string;
   vote_average: number;
