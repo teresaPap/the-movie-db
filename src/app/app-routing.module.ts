@@ -11,12 +11,11 @@ const routes: Routes = [
 		component: ModalComponent,
 		children: [
 			{
-				path: ':id',
+				path: '',
 				loadChildren: () =>
 					import('./movie-detail/movie-detail.module').then(
 						(m) => m.MovieDetailModule
 					),
-				resolve: { resolvedData: MovieResolver },
 			},
 		],
 		outlet: 'modal',

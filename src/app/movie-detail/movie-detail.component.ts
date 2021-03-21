@@ -1,20 +1,24 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
+import { IMovieDetail } from '../interfaces';
 
 @Component({
-  selector: 'tmdb-movie-detail',
-  templateUrl: './movie-detail.component.html',
-  styleUrls: ['./movie-detail.component.scss']
+	selector: 'tmdb-movie-detail',
+	templateUrl: './movie-detail.component.html',
+	styleUrls: ['./movie-detail.component.scss'],
 })
 export class MovieDetailComponent implements OnInit {
+	public movie: IMovieDetail = {} as IMovieDetail;
 
-  public movie: any;
+	constructor(private route: ActivatedRoute) {}
 
-	constructor(private route: ActivatedRoute) {
-		this.movie = this.route.snapshot.data['resolvedData']
+	ngOnInit(): void {
+    const resolvedData = this.route.snapshot.data['resolvedData']
+		this.onMovieRetrieved(resolvedData)
 	}
 
-  ngOnInit(): void {
-  }
-
+	private onMovieRetrieved(movie: IMovieDetail): void {
+    console.log('TODO: Why is "movie" empty here?')
+		this.movie = movie;
+	}
 }
