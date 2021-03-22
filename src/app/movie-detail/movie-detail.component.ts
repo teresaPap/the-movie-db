@@ -18,7 +18,7 @@ export class MovieDetailComponent implements OnInit {
 	}
 
 	private onMovieRetrieved(movie: IMovieDetail): void {
-    console.log('TODO: Why is "movie" empty here?')
+    	console.log('TODO: movie:', movie)
 		this.movie = movie;
 	}
 }
