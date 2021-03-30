@@ -1,14 +1,14 @@
 import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
 import { PageEvent } from '@angular/material/paginator';
 import { Subscription } from 'rxjs';
-import { IMovieDisplayData } from '../interfaces';
+import { IMovieDisplayData } from 'src/app/interfaces';
 
 @Component({
-  selector: 'tmdb-search-results',
-  templateUrl: './search-results.component.html',
-  styleUrls: ['./search-results.component.scss'],
+  selector: 'tmdb-results',
+  templateUrl: './results.component.html',
+  styleUrls: ['./results.component.scss'],
 })
-export class SearchResultsComponent implements OnInit {
+export class ResultsComponent implements OnInit {
   @Input() movies: IMovieDisplayData[] = [];
   @Input() paginatorLength: number = 0;
   @Output() pageChangedEvent = new EventEmitter<1|-1>();
