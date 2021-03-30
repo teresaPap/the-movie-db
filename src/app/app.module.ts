@@ -17,10 +17,17 @@ import { SearchResultsComponent } from './search-results/search-results.componen
 import { MatPaginatorModule } from '@angular/material/paginator';
 import { MatCardModule } from '@angular/material/card';
 import { CommonModule } from '@angular/common';
-import { MovieDetailComponent } from './movie-detail/movie-detail.component';
+import { MovieComponent } from './movie/movie.component';
 
 @NgModule({
-	declarations: [AppComponent, SearchComponent, ModalComponent, SearchResultsComponent, MaterialElevationDirective, MovieDetailComponent],
+	declarations: [
+		AppComponent,
+		SearchComponent,
+		ModalComponent,
+		SearchResultsComponent,
+		MaterialElevationDirective,
+		MovieComponent,
+	],
 	imports: [
 		BrowserModule,
 		CommonModule,
@@ -32,7 +39,7 @@ import { MovieDetailComponent } from './movie-detail/movie-detail.component';
 		MatIconModule,
 		MatButtonModule,
 		MatDialogModule,
-		MatCardModule, 
+		MatCardModule,
 		MatPaginatorModule,
 		AppRoutingModule,
 	],

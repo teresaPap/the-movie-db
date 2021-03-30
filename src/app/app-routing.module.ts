@@ -1,8 +1,8 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 import { ModalComponent } from './modal/modal.component';
-import { MovieDetailComponent } from './movie-detail/movie-detail.component';
-import { MovieResolver } from './movie-detail/movie.resolver';
+import { MovieComponent } from './movie/movie.component';
+import { MovieResolver } from './movie/movie.resolver';
 import { SearchComponent } from './search/search.component';
 
 const routes: Routes = [
@@ -22,7 +22,7 @@ const routes: Routes = [
 	// this way works - resolved data are propagated in MovieDetailComponent
 	{
 		path: 'movie/:id',
-		component: MovieDetailComponent,
+		component: MovieComponent,
 		resolve: { resolvedData: MovieResolver },
 		outlet: 'modal',
 	},
