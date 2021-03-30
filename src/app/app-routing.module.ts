@@ -9,23 +9,15 @@ const routes: Routes = [
 	{
 		path: 'movie',
 		component: ModalComponent,
-		// children: [
-		// 	{
-		// 		path: ':id',
-		// 		component: MovieDetailComponent,
-		// 		resolve: { resolvedData: MovieResolver },
-		//         outlet: 'modal',
-		// 	},
-		// ],		
+		outlet: 'modal'
 	},
-	{ path: '', component: SearchComponent },
-	// this way works - resolved data are propagated in MovieDetailComponent
 	{
 		path: 'movie/:id',
 		component: MovieComponent,
 		resolve: { resolvedData: MovieResolver },
 		outlet: 'modal',
 	},
+	{ path: '', component: SearchComponent },
 ];
 
 @NgModule({
