@@ -3,11 +3,11 @@ import { ActivatedRoute } from '@angular/router';
 import { IMovieDetail } from '../interfaces';
 
 @Component({
-	selector: 'tmdb-movie-detail',
-	templateUrl: './movie-detail.component.html',
-	styleUrls: ['./movie-detail.component.scss'],
+	selector: 'tmdb-movie',
+	templateUrl: './movie.component.html',
+	styleUrls: ['./movie.component.scss'],
 })
-export class MovieDetailComponent implements OnInit {
+export class MovieComponent implements OnInit {
 	public movie: IMovieDetail = {} as IMovieDetail;
 
 	constructor(private route: ActivatedRoute) {}
@@ -18,7 +18,7 @@ export class MovieDetailComponent implements OnInit {
 	}
 
 	private onMovieRetrieved(movie: IMovieDetail): void {
-    console.log('TODO: Why is "movie" empty here?')
+    	console.log('TODO: movie:', movie)
 		this.movie = movie;
 	}
 }

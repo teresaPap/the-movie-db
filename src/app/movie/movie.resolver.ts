@@ -7,10 +7,13 @@ import {
 } from '@angular/router';
 import { of } from 'rxjs';
 import { tap } from 'rxjs/operators';
+import { IMovieDetail } from '../interfaces';
 import { DataService } from '../services/data.service';
 
-@Injectable()
-export class MovieResolver implements Resolve<boolean> {
+@Injectable({
+	providedIn: 'root'
+})
+export class MovieResolver implements Resolve<IMovieDetail> {
 	constructor(private db: DataService) {}
 
 	resolve(route: ActivatedRouteSnapshot, state: RouterStateSnapshot) {

@@ -13,16 +13,23 @@ import { HttpClientModule } from '@angular/common/http';
 import { MatDialogModule } from '@angular/material/dialog';
 import { ModalComponent } from './modal/modal.component';
 import { MaterialElevationDirective } from './directives/material-elevation.directive';
-import { SearchResultsComponent } from './search-results/search-results.component';
 import { MatPaginatorModule } from '@angular/material/paginator';
 import { MatCardModule } from '@angular/material/card';
 import { CommonModule } from '@angular/common';
+import { MovieComponent } from './movie/movie.component';
+import { ResultsComponent } from './search/results/results.component';
 
 @NgModule({
-	declarations: [AppComponent, SearchComponent, ModalComponent, SearchResultsComponent, MaterialElevationDirective],
+	declarations: [
+		AppComponent,
+		SearchComponent,
+		ResultsComponent,
+		ModalComponent,
+		MaterialElevationDirective,
+		MovieComponent,
+	],
 	imports: [
 		BrowserModule,
-		AppRoutingModule,
 		CommonModule,
 		HttpClientModule,
 		NoopAnimationsModule,
@@ -32,8 +39,9 @@ import { CommonModule } from '@angular/common';
 		MatIconModule,
 		MatButtonModule,
 		MatDialogModule,
-		MatCardModule, 
+		MatCardModule,
 		MatPaginatorModule,
+		AppRoutingModule,
 	],
 	providers: [],
 	bootstrap: [AppComponent],

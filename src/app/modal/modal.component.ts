@@ -1,7 +1,7 @@
 import { Component } from '@angular/core';
 import { MatDialog } from '@angular/material/dialog';
 import { ActivatedRoute, Router } from '@angular/router';
-import { MovieDetailComponent } from '../movie-detail/movie-detail.component';
+import { MovieComponent } from '../movie/movie.component';
 
 @Component({
 	selector: 'tmdb-modal',
@@ -18,7 +18,7 @@ export class ModalComponent {
 	}
 
 	public openDialog(): void {
-		const dialogRef = this.dialog.open(MovieDetailComponent, {});
+		const dialogRef = this.dialog.open(MovieComponent, {});
 		dialogRef.afterClosed().subscribe((result) => {
 			console.log('The dialog was closed');
 			this.router.navigate(['../'], { relativeTo: this.route });

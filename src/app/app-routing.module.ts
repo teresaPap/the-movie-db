@@ -1,23 +1,29 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 import { ModalComponent } from './modal/modal.component';
-import { MovieResolver } from './movie-detail/movie.resolver';
+import { MovieComponent } from './movie/movie.component';
+import { MovieResolver } from './movie/movie.resolver';
 import { SearchComponent } from './search/search.component';
 
 const routes: Routes = [
-	{ path: '', component: SearchComponent },
 	{
 		path: 'movie',
 		component: ModalComponent,
-		children: [
-			{
-				path: '',
-				loadChildren: () =>
-					import('./movie-detail/movie-detail.module').then(
-						(m) => m.MovieDetailModule
-					),
-			},
-		],
+		// children: [
+		// 	{
+		// 		path: ':id',
+		// 		component: MovieDetailComponent,
+		// 		resolve: { resolvedData: MovieResolver },
+		//         outlet: 'modal',
+		// 	},
+		// ],		
+	},
+	{ path: '', component: SearchComponent },
+	// this way works - resolved data are propagated in MovieDetailComponent
+	{
+		path: 'movie/:id',
+		component: MovieComponent,
+		resolve: { resolvedData: MovieResolver },
 		outlet: 'modal',
 	},
 ];

@@ -38,9 +38,9 @@
 </form>
 
 <div *ngIf="activePage" class="search-results"> 
-	<tmdb-search-results
+	<tmdb-results
 		[movies]="movies"
 		[paginatorLength]="totalMovies"
 		(pageChangedEvent)="searchForMovies(activeKeyword, activePage + $event)"
-	></tmdb-search-results>
+	></tmdb-results>
 </div>
