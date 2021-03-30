@@ -18,6 +18,7 @@ import { MatCardModule } from '@angular/material/card';
 import { CommonModule } from '@angular/common';
 import { MovieComponent } from './movie/movie.component';
 import { ResultsComponent } from './search/results/results.component';
+import { ErrorComponent } from './error/error.component';
 
 @NgModule({
 	declarations: [
@@ -27,6 +28,7 @@ import { ResultsComponent } from './search/results/results.component';
 		ModalComponent,
 		MaterialElevationDirective,
 		MovieComponent,
+		ErrorComponent,
 	],
 	imports: [
 		BrowserModule,

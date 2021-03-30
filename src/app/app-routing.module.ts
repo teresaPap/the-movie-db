@@ -1,5 +1,6 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
+import { ErrorComponent } from './error/error.component';
 import { ModalComponent } from './modal/modal.component';
 import { MovieComponent } from './movie/movie.component';
 import { MovieResolver } from './movie/movie.resolver';
@@ -18,6 +19,7 @@ const routes: Routes = [
 		outlet: 'modal',
 	},
 	{ path: '', component: SearchComponent },
+	{ path: '**', component: ErrorComponent },
 ];
 
 @NgModule({
