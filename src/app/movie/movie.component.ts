@@ -1,6 +1,5 @@
-import { Component, OnInit } from '@angular/core';
-import { MatDialog } from '@angular/material/dialog';
-import { ActivatedRoute } from '@angular/router';
+import { Component, Inject } from '@angular/core';
+import { MAT_DIALOG_DATA } from '@angular/material/dialog';
 import { IMovieDetail } from '../interfaces';
 
 @Component({
@@ -8,20 +7,13 @@ import { IMovieDetail } from '../interfaces';
 	templateUrl: './movie.component.html',
 	styleUrls: ['./movie.component.scss'],
 })
-export class MovieComponent implements OnInit {
+export class MovieComponent {
 	public movie: IMovieDetail = {} as IMovieDetail;
 
 	constructor(
-		private route: ActivatedRoute
-	) {}
-
-	ngOnInit(): void {
-    const resolvedData = this.route.snapshot.data['resolvedData']
-		this.onMovieRetrieved(resolvedData)
+		@Inject(MAT_DIALOG_DATA) resolvedData: IMovieDetail
+	) {
+		this.movie = resolvedData
 	}
 
-	private onMovieRetrieved(movie: IMovieDetail): void {
-    	console.log('TODO: movie:', movie)
-		this.movie = movie;
-	}
 }
