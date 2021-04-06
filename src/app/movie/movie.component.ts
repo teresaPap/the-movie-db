@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { MatDialog } from '@angular/material/dialog';
 import { ActivatedRoute } from '@angular/router';
 import { IMovieDetail } from '../interfaces';
 
@@ -10,7 +11,9 @@ import { IMovieDetail } from '../interfaces';
 export class MovieComponent implements OnInit {
 	public movie: IMovieDetail = {} as IMovieDetail;
 
-	constructor(private route: ActivatedRoute) {}
+	constructor(
+		private route: ActivatedRoute
+	) {}
 
 	ngOnInit(): void {
     const resolvedData = this.route.snapshot.data['resolvedData']

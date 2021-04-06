@@ -11,7 +11,7 @@ import { AppComponent } from './app.component';
 import { SearchComponent } from './search/search.component';
 import { HttpClientModule } from '@angular/common/http';
 import { MatDialogModule } from '@angular/material/dialog';
-import { ModalComponent } from './modal/modal.component';
+import { ModalComponent } from './shared/modal/modal.component';
 import { MaterialElevationDirective } from './directives/material-elevation.directive';
 import { MatPaginatorModule } from '@angular/material/paginator';
 import { MatCardModule } from '@angular/material/card';

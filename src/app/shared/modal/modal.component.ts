@@ -1,7 +1,7 @@
 import { Component } from '@angular/core';
 import { MatDialog } from '@angular/material/dialog';
 import { ActivatedRoute, Router } from '@angular/router';
-import { MovieComponent } from '../movie/movie.component';
+import { MovieComponent } from 'src/app/movie/movie.component';
 
 @Component({
 	selector: 'tmdb-modal',

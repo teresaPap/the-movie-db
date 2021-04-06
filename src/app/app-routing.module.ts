@@ -1,6 +1,6 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
-import { ModalComponent } from './modal/modal.component';
+import { ModalComponent } from './shared/modal/modal.component';
 import { MovieComponent } from './movie/movie.component';
 import { MovieResolver } from './movie/movie.resolver';
 import { SearchComponent } from './search/search.component';
@@ -16,7 +16,7 @@ const routes: Routes = [
 		// 		resolve: { resolvedData: MovieResolver },
 		//         outlet: 'modal',
 		// 	},
-		// ],		
+		// ],
 	},
 	{ path: '', component: SearchComponent },
 	// this way works - resolved data are propagated in MovieDetailComponent
