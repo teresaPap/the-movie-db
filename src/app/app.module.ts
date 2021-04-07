@@ -11,12 +11,15 @@ import { MatCardModule } from '@angular/material/card';
 import { CommonModule } from '@angular/common';
 import { HttpClientModule } from '@angular/common/http';
 import { MatDialogModule } from '@angular/material/dialog';
-import {MatGridListModule} from '@angular/material/grid-list';
+import { MatGridListModule } from '@angular/material/grid-list';
+
+import { ErrorComponent } from 'src/app/error/error.component';
 import { SearchComponent } from 'src/app/search/search.component';
 import { MovieModalComponent } from 'src/app/movie/modal/modal.component';
 import { MaterialElevationDirective } from 'src/app/directives/material-elevation.directive';
 import { MovieComponent } from 'src/app/movie/movie.component';
 import { ResultsComponent } from 'src/app/search/results/results.component';
+
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 @NgModule({
@@ -27,6 +30,7 @@ import { AppComponent } from './app.component';
 		MovieModalComponent,
 		MaterialElevationDirective,
 		MovieComponent,
+		ErrorComponent,
 	],
 	imports: [
 		BrowserModule,

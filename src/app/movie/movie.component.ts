@@ -1,6 +1,6 @@
 import { Component, Inject } from '@angular/core';
 import { MAT_DIALOG_DATA } from '@angular/material/dialog';
-import { IMovieDetail } from '../interfaces';
+import { IMovieDetail } from 'src/app/interfaces';
 
 @Component({
 	selector: 'tmdb-movie',
