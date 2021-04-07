@@ -6,26 +6,27 @@ import { MatInputModule } from '@angular/material/input';
 import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatIconModule } from '@angular/material/icon';
 import { MatButtonModule } from '@angular/material/button';
-import { AppRoutingModule } from './app-routing.module';
-import { AppComponent } from './app.component';
-import { SearchComponent } from './search/search.component';
-import { HttpClientModule } from '@angular/common/http';
-import { MatDialogModule } from '@angular/material/dialog';
-import { ModalComponent } from './modal/modal.component';
-import { MaterialElevationDirective } from './directives/material-elevation.directive';
 import { MatPaginatorModule } from '@angular/material/paginator';
 import { MatCardModule } from '@angular/material/card';
 import { CommonModule } from '@angular/common';
-import { MovieComponent } from './movie/movie.component';
-import { ResultsComponent } from './search/results/results.component';
-import { ErrorComponent } from './error/error.component';
+import { HttpClientModule } from '@angular/common/http';
+import { MatDialogModule } from '@angular/material/dialog';
 
+import { ErrorComponent } from 'src/app/error/error.component';
+import { SearchComponent } from 'src/app/search/search.component';
+import { MovieModalComponent } from 'src/app/movie/modal/modal.component';
+import { MaterialElevationDirective } from 'src/app/directives/material-elevation.directive';
+import { MovieComponent } from 'src/app/movie/movie.component';
+import { ResultsComponent } from 'src/app/search/results/results.component';
+
+import { AppRoutingModule } from './app-routing.module';
+import { AppComponent } from './app.component';
 @NgModule({
 	declarations: [
 		AppComponent,
 		SearchComponent,
 		ResultsComponent,
-		ModalComponent,
+		MovieModalComponent,
 		MaterialElevationDirective,
 		MovieComponent,
 		ErrorComponent,

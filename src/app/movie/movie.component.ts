@@ -1,24 +1,19 @@
-import { Component, OnInit } from '@angular/core';
-import { ActivatedRoute } from '@angular/router';
-import { IMovieDetail } from '../interfaces';
+import { Component, Inject } from '@angular/core';
+import { MAT_DIALOG_DATA } from '@angular/material/dialog';
+import { IMovieDetail } from 'src/app/interfaces';
 
 @Component({
 	selector: 'tmdb-movie',
 	templateUrl: './movie.component.html',
 	styleUrls: ['./movie.component.scss'],
 })
-export class MovieComponent implements OnInit {
+export class MovieComponent {
 	public movie: IMovieDetail = {} as IMovieDetail;
 
-	constructor(private route: ActivatedRoute) {}
-
-	ngOnInit(): void {
-    const resolvedData = this.route.snapshot.data['resolvedData']
-		this.onMovieRetrieved(resolvedData)
+	constructor(
+		@Inject(MAT_DIALOG_DATA) resolvedData: IMovieDetail
+	) {
+		this.movie = resolvedData
 	}
 
-	private onMovieRetrieved(movie: IMovieDetail): void {
-    	console.log('movie:', movie)
-		this.movie = movie;
-	}
 }

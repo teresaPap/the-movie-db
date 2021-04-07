@@ -1,20 +1,14 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 import { ErrorComponent } from './error/error.component';
-import { ModalComponent } from './modal/modal.component';
-import { MovieComponent } from './movie/movie.component';
-import { MovieResolver } from './movie/movie.resolver';
-import { SearchComponent } from './search/search.component';
+import { MovieModalComponent } from 'src/app/movie/modal/modal.component';
+import { MovieResolver } from 'src/app/movie/movie.resolver';
+import { SearchComponent } from 'src/app/search/search.component';
 
 const routes: Routes = [
 	{
-		path: 'movie',
-		component: ModalComponent,
-		outlet: 'modal'
-	},
-	{
 		path: 'movie/:id',
-		component: MovieComponent,
+		component: MovieModalComponent,
 		resolve: { resolvedData: MovieResolver },
 		outlet: 'modal',
 	},

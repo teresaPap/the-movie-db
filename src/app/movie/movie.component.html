@@ -1,2 +1,7 @@
-<h3>Movie detail works</h3>
-<p *ngIf="!movie">Movie resolver does not work properly.</p>
+<h2 mat-dialog-title>{{ movie.title }}</h2>
+
+<mat-dialog-content>
+
+	<p>{{ movie.overview }}</p>
+
+</mat-dialog-content>
