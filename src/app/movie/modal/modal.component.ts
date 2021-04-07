@@ -23,6 +23,7 @@ export class MovieModalComponent {
 		const dialogConfig = new MatDialogConfig();
 		dialogConfig.autoFocus = true;
 		dialogConfig.data = this.route.snapshot.data['resolvedData']
+		dialogConfig.width = '80%'
 
 		const dialogRef = this.dialog.open(MovieComponent, dialogConfig);
 

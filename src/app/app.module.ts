@@ -11,6 +11,7 @@ import { MatCardModule } from '@angular/material/card';
 import { CommonModule } from '@angular/common';
 import { HttpClientModule } from '@angular/common/http';
 import { MatDialogModule } from '@angular/material/dialog';
+import {MatGridListModule} from '@angular/material/grid-list';
 import { SearchComponent } from 'src/app/search/search.component';
 import { MovieModalComponent } from 'src/app/movie/modal/modal.component';
 import { MaterialElevationDirective } from 'src/app/directives/material-elevation.directive';
@@ -40,6 +41,7 @@ import { AppComponent } from './app.component';
 		MatDialogModule,
 		MatCardModule,
 		MatPaginatorModule,
+		MatGridListModule,
 		AppRoutingModule,
 	],
 	providers: [],
