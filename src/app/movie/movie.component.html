@@ -1,21 +1,35 @@
+<h2 mat-dialog-title>{{ movie.title }}</h2>
+<mat-grid-list cols="2" rowHeight="3rem">
+	<mat-grid-tile colspan="1" rowspan="10">
+		<img mat-card-image [src]="movie.poster_path" [alt]="movie.title" />
+	</mat-grid-tile>
 
-<mat-dialog-content>
-	<mat-grid-list cols="2" rowHeight="100px">
-		<mat-grid-tile colspan="1" rowspan="3">
-			<img mat-card-image [src]="movie.poster_path" [alt]="movie.title" />
-		</mat-grid-tile>
-		<mat-grid-tile colspan="1" rowspan="1">
-			<h2 mat-dialog-title>{{ movie.title }}</h2>
-		</mat-grid-tile>
-		<mat-grid-tile colspan="1" rowspan="2">
-			<p>{{ movie.overview }}</p>
-			<p>Release date: {{ movie.release_date }}</p>
-			<p>Budget: {{ movie.revenue | currency }}</p>
-			<p>Spoken languages: {{ movie.spoken_languages }}</p>
+	<mat-grid-tile colspan="1" rowspan="10">
+		<mat-dialog-content>
+			<p class="mat-subheading-2">{{ movie.overview }}</p>
 
-			<p>Rated with {{ movie.vote_average }}/10⭐ based on {{ movie.vote_count }} votes.</p>
-		</mat-grid-tile>
-	</mat-grid-list>
-
-
-</mat-dialog-content>
+			<p>
+				Release date:
+				<strong class="mat-body-strong">{{ movie.release_date | date }}</strong>
+			</p>
+			<p>
+				Budget:
+				<strong class="mat-body-strong">{{ movie.revenue | currency }}</strong>
+			</p>
+			<p>
+				Spoken languages:
+				<strong class="mat-body-strong">
+					<ng-container *ngFor="let language of movie.spoken_languages, let i = index">
+						{{ language.name | commaSeparated: i===0 }}
+					</ng-container>
+				</strong>
+			</p>
+			<p>
+				Rated with
+				<strong class="mat-body-strong">{{ movie.vote_average }}/10</strong>
+				stars based on 
+				<strong class="mat-body-strong">{{ movie.vote_count }}</strong> votes.
+			</p>
+		</mat-dialog-content>
+	</mat-grid-tile>
+</mat-grid-list>
