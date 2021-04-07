@@ -8,33 +8,29 @@ import { MatIconModule } from '@angular/material/icon';
 import { MatButtonModule } from '@angular/material/button';
 import { MatPaginatorModule } from '@angular/material/paginator';
 import { MatCardModule } from '@angular/material/card';
-import { CommonModule } from '@angular/common';
 import { HttpClientModule } from '@angular/common/http';
-import { MatDialogModule } from '@angular/material/dialog';
-import { MatGridListModule } from '@angular/material/grid-list';
 
 import { ErrorComponent } from 'src/app/error/error.component';
 import { SearchComponent } from 'src/app/search/search.component';
-import { MovieModalComponent } from 'src/app/movie/modal/modal.component';
 import { MaterialElevationDirective } from 'src/app/directives/material-elevation.directive';
-import { MovieComponent } from 'src/app/movie/movie.component';
 import { ResultsComponent } from 'src/app/search/results/results.component';
+import { SharedModule } from 'src/app/shared/shared.module';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
+import { MovieModule } from 'src/app/movie/movie.module';
+
 @NgModule({
 	declarations: [
 		AppComponent,
 		SearchComponent,
 		ResultsComponent,
-		MovieModalComponent,
 		MaterialElevationDirective,
-		MovieComponent,
 		ErrorComponent,
 	],
 	imports: [
+		SharedModule,
 		BrowserModule,
-		CommonModule,
 		HttpClientModule,
 		NoopAnimationsModule,
 		ReactiveFormsModule,
@@ -42,10 +38,9 @@ import { AppComponent } from './app.component';
 		MatFormFieldModule,
 		MatIconModule,
 		MatButtonModule,
-		MatDialogModule,
 		MatCardModule,
 		MatPaginatorModule,
-		MatGridListModule,
+		MovieModule,
 		AppRoutingModule,
 	],
 	providers: [],
